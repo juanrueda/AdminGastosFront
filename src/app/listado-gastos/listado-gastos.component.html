@@ -1,0 +1,20 @@
+<h2>Listado de gastos</h2>
+
+<a class="btn btn-primary" routerLink="/nuevoGasto">Agregar</a>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Importe</th>
+            <th>Pagado</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let gasto of gastos">
+        <td>{{gasto.id}}</td>
+        <td>{{gasto.nombre}}</td>
+        <td>{{gasto.importe}}</td>
+        <td><input type="checkbox" [checked]="gasto.pagado"></td>
+    </tr>
+</table>

@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Agregar un gasto</h2>
+    <form #gastoForm="ngForm">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control"
+            required
+            [(ngModel)]="gasto.nombre" >
+            {{gasto.nombre}}
+        </div>
+
+        <div class="form-group">
+            <label for="importe">Importe</label>
+            <input type="text" id="importe" class="form-control" 
+            required
+            [(ngModel)]="gasto.importe" >
+        </div>
+
+        <div class="form-group">
+            <label for="pagado">Pagado</label>
+            <input type="checkbox" id="pagado" class="form-control" 
+            required
+            [(ngModel)]="gasto.pagado">
+        </div>
+
+        <button type="submit" class="btn btn-success">Agregar</button>
+
+    </form>
+</div>
