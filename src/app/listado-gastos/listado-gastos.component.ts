@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GastoService } from '../gasto.service';
 import { Gasto } from '../models/gasto';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado-gastos',
@@ -9,9 +11,14 @@ import { Gasto } from '../models/gasto';
 })
 export class ListadoGastosComponent implements OnInit {
 
+  gasto: Gasto;
   gastos: Gasto[];
 
-  constructor(private gastoService: GastoService) { }
+  constructor(
+    private gastoService: GastoService, 
+    private authService: AuthService, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getGastos();
@@ -19,7 +26,12 @@ export class ListadoGastosComponent implements OnInit {
 
   getGastos() : void {
     this.gastoService.getGastos()
-      .subscribe(gastos => this.gastos = gastos);
+      .subscribe(response => this.gastos = response.data);
+  }
+
+  logOut() {
+    this.authService.logOut();
+    this.router.navigate(["/login"]);
   }
 
 }

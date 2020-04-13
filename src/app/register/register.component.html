@@ -1,0 +1,14 @@
+<div>
+    <form class="form-register" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <h3>Ingresa tus datos para registrarte</h3>
+        <div class="form-group">
+            <label for="username">Nombre de usuario: </label>
+            <input type="text" class="form-control" id="username" formControlName="username" requiered>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña: </label>
+            <input type="password" class="form-control" id="password" formControlName="password" requiered>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarme</button>
+    </form>
+</div>
