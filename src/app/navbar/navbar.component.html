@@ -1,21 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Gastify</a>
+    <a class="navbar-brand" routerLink="/gastos">Gastify</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto">
-                <a class="nav-link nav-item active" href="#">Inicio</a>
-                <a class="nav-link nav-item" href="#">Gastos</a>
+                <a class="nav-link nav-item active" routerLink="/gastos">Inicio</a>
+                <a class="nav-link nav-item" routerLink="/gastos">Gastos</a>
         </div>
-        <div class="navbar-nav dropdown mr-1">
+        <div class="navbar-nav dropdown dropleft mr-2">
             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Username
+                {{username}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
                 <a class="dropdown-item" href="#">Perfil</a>
-                <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                <a class="dropdown-item" (click)="logOut()" href="#">Cerrar Sesion</a>
             </div>
         </div>
-
     </div>
 
 </nav>
