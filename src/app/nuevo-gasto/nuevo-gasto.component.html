@@ -1,29 +1,36 @@
 <div class="container">
-    <h2>Agregar un gasto</h2>
-    <form #gastoForm="ngForm">
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" class="form-control"
-            required
-            [(ngModel)]="gasto.nombre" >
-            {{gasto.nombre}}
+    <div class="row justify-content-center">
+        <div class="col-10 col-sm-12 col-md-9 col-lg-9 col-xl-6">
+            <h3>Agregar un gasto</h3>
+            <form class="form-alta-gasto" #altaGastoForm="ngForm" (ngSubmit)="agregarGasto(altaGastoForm)">
+                <div class="form-group">
+                    <label for="nombre">Nombre del gasto: </label>
+                    <input type="text" id="nombre" class="form-control" 
+                    name="nombre" ngModel required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="importe">Importe: </label>
+                    <input type="number" id="importe" class="form-control" 
+                    name="importe" ngModel required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaVencimiento">Fecha de vencimiento</label>
+                    <input type="date" id="fechaVencimiento" class="form-control"
+                    name="fechaVencimiento" ngModel required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="pagado">¿Ya lo pagaste?</label>
+                    <input type="checkbox" id="pagado" class="form-control" 
+                    name="pagado" ngModel>
+                </div>
+        
+                <button type="submit" class="btn btn-success">Agregar</button>
+        
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="importe">Importe</label>
-            <input type="text" id="importe" class="form-control" 
-            required
-            [(ngModel)]="gasto.importe" >
-        </div>
-
-        <div class="form-group">
-            <label for="pagado">Pagado</label>
-            <input type="checkbox" id="pagado" class="form-control" 
-            required
-            [(ngModel)]="gasto.pagado">
-        </div>
-
-        <button type="submit" class="btn btn-success">Agregar</button>
-
-    </form>
+    </div>
 </div>

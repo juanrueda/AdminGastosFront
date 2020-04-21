@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { GASTOS } from './models/mock-gastos';
 import { Observable, of } from 'rxjs';
 import { Gasto } from './models/gasto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -27,6 +26,10 @@ export class GastoService {
       .pipe(
         catchError(this.handleError<Gasto[]>('getGastos', [])) //Revisar manejo de errores
       );
+  }
+
+  agregarGasto(gasto: string): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/gasto', gasto, this.httpOptions);
   }
 
   private handleError<T> (operation = 'operation', result?: T){

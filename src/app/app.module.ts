@@ -11,6 +11,7 @@ import { NuevoGastoComponent } from './nuevo-gasto/nuevo-gasto.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -23,6 +24,7 @@ export function tokenGetter() {
     NuevoGastoComponent,
     LoginComponent,
     RegisterComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

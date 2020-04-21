@@ -4,6 +4,6 @@ export class Gasto {
     nombre: string;
     importe: number;
     pagado: boolean;
-    //fechaVencimiento: Date;
-    //user: User;
+    fechaVencimiento: Date;
+    userId: number;
 }

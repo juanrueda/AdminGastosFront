@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Gasto } from '../models/gasto';
 import { GastoService } from '../gasto.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Gasto } from '../models/gasto';
 
 @Component({
   selector: 'app-nuevo-gasto',
@@ -9,17 +12,36 @@ import { GastoService } from '../gasto.service';
 })
 export class NuevoGastoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gastoService: GastoService, private router: Router, private jwtHelper: JwtHelperService) { }
 
+  gasto: Gasto;
+  
   ngOnInit(): void {
   }
 
-  gasto: Gasto;
+  agregarGasto(form: NgForm){
+    let token = localStorage.getItem("jwt");
+    let userId = this.jwtHelper.decodeToken(token).nameid;
 
-  submitted = false
+    this.gasto = new Gasto();
 
-  onSubmit (){
-    this.submitted = true;
+    this.gasto.nombre = form.controls['nombre'].value;
+    this.gasto.importe = form.controls['importe'].value;
+    this.gasto.fechaVencimiento = form.controls['fechaVencimiento'].value;
+    if(form.controls['pagado'].value){
+      this.gasto.pagado = true;
+    } else {
+      this.gasto.pagado = false;
+    }
+    this.gasto.userId = +userId;
+
+    let gastoJson = JSON.stringify(this.gasto);
+
+    this.gastoService.agregarGasto(gastoJson)
+      .subscribe(res => {
+          alert(res.message)
+          this.router.navigate(['/gastos']);
+        });
   }
 
 }
