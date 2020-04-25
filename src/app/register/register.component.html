@@ -1,14 +1,23 @@
-<div>
-    <form class="form-register" [formGroup]="registerForm" (ngSubmit)="registerUser()">
-        <h3>Ingresa tus datos para registrarte</h3>
-        <div class="form-group">
-            <label for="username">Nombre de usuario: </label>
-            <input type="text" class="form-control" id="username" formControlName="username" requiered>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h3 class="text-center">Ingresá tus datos para registrarte</h3>
+            <form class="form-register mt-5" #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario: </label>
+                    <input type="text" class="form-control" id="username" name="username" ngModel requiered>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña: </label>
+                    <input type="password" class="form-control" id="password" name="password" ngModel requiered>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Repetir contraseña: </label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ngModel
+                        requiered>
+                </div>
+                <button type="submit" class="btn btn-success">Registrarme</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="password">Contraseña: </label>
-            <input type="password" class="form-control" id="password" formControlName="password" requiered>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarme</button>
-    </form>
+    </div>
 </div>

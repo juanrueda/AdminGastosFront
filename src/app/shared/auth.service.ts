@@ -22,9 +22,8 @@ export class AuthService {
   ) { }
 
   //Register
-  register(user: User): Observable<any> {
-    let api = `${this.endpoint}/register`;
-    return this.http.post<any>(api, user)
+  register(user: string): Observable<any> {
+    return this.http.post<any>(`${this.endpoint}/register`, user, this.httpOptions)
       .pipe(
         catchError(this.handleError)
       );
