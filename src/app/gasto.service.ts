@@ -28,8 +28,16 @@ export class GastoService {
       );
   }
 
+  getGasto(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/gasto/${id}`, this.httpOptions);
+  }
+
   agregarGasto(gasto: string): Observable<any> {
     return this.http.post<any>(this.baseUrl + '/gasto', gasto, this.httpOptions);
+  }
+
+  editarGasto(gasto: Gasto): Observable<any> {
+    return this.http.put(`${this.baseUrl}/gasto`, gasto, this.httpOptions)
   }
 
   private handleError<T> (operation = 'operation', result?: T){

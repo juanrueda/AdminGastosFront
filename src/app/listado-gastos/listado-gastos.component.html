@@ -2,19 +2,28 @@
 
 <button class="btn btn-primary" routerLink="/nuevoGasto">Agregar</button>
 
-<table class="table">
+<table class="table table-hover">
     <thead class="thead-dark">
         <tr>
-            <th>Id</th>
             <th>Nombre</th>
             <th>Importe</th>
+            <th>Vencimiento</th>
             <th>Pagado</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let gasto of gastos">
-        <td>{{gasto.id}}</td>
-        <td>{{gasto.nombre}}</td>
-        <td>{{gasto.importe}}</td>
-        <td><input type="checkbox" [checked]="gasto.pagado"></td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let gasto of gastos">
+            <td>{{gasto.nombre}}</td>
+            <td>{{gasto.importe}}</td>
+            <td>{{gasto.fechaVencimiento | date:"dd/MM/yyyy"}}</td>
+            <td>
+                <input type="checkbox" id="pagado"
+                name="pagado" [ngModel]="gasto.pagado" (ngModelChange)="editarGasto($event, gasto)">
+            </td>
+            <td>
+                <span routerLink="/editarGasto/{{gasto.id}}" class="btn btn-primary material-icons md-light">edit</span>   
+            </td>
+        </tr>
+    </tbody>
 </table>

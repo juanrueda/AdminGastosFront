@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EditarGastoComponent } from './editar-gasto/editar-gasto.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -25,6 +26,7 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
+    EditarGastoComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,14 @@ export class ListadoGastosComponent implements OnInit {
       .subscribe(response => this.gastos = response.data);
   }
 
+  editarGasto(event: any, gasto: Gasto){
+    gasto.pagado = event;
+    this.gastoService.editarGasto(gasto)
+    .subscribe(res => {
+      console.log(res.message)
+    });
+  }
+
   logOut() {
     this.authService.logOut();
     this.router.navigate(["/login"]);
