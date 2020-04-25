@@ -37,7 +37,11 @@ export class GastoService {
   }
 
   editarGasto(gasto: Gasto): Observable<any> {
-    return this.http.put(`${this.baseUrl}/gasto`, gasto, this.httpOptions)
+    return this.http.put(`${this.baseUrl}/gasto`, gasto, this.httpOptions);
+  }
+
+  eliminarGasto(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/gasto/${id}`, this.httpOptions);
   }
 
   private handleError<T> (operation = 'operation', result?: T){

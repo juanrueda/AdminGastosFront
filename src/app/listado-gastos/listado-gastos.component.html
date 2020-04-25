@@ -15,15 +15,42 @@
     <tbody>
         <tr *ngFor="let gasto of gastos">
             <td>{{gasto.nombre}}</td>
-            <td>{{gasto.importe}}</td>
+            <td>${{gasto.importe}}</td>
             <td>{{gasto.fechaVencimiento | date:"dd/MM/yyyy"}}</td>
             <td>
-                <input type="checkbox" id="pagado"
-                name="pagado" [ngModel]="gasto.pagado" (ngModelChange)="editarGasto($event, gasto)">
+                <input type="checkbox" id="pagado" name="pagado" [ngModel]="gasto.pagado"
+                    (ngModelChange)="editarGasto($event, gasto)">
             </td>
             <td>
-                <span routerLink="/editarGasto/{{gasto.id}}" class="btn btn-primary material-icons md-light">edit</span>   
+                <span routerLink="/editarGasto/{{gasto.id}}" class="btn btn-primary material-icons md-light">edit</span>
+                <span type="button" (click)="seleccionarGasto(gasto)" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger material-icons md-light ml-3">
+                    delete
+                </span>
             </td>
         </tr>
     </tbody>
 </table>
+
+<div *ngIf="gastoSeleccionado" class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalTitle">Eliminar gasto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Estás por eliminar el gasto: <b>{{gastoSeleccionado.nombre}}</b>, ¿estás seguro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" 
+                (click)="eliminarGasto(gastoSeleccionado)">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

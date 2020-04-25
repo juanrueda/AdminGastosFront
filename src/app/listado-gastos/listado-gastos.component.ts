@@ -13,6 +13,7 @@ export class ListadoGastosComponent implements OnInit {
 
   gasto: Gasto;
   gastos: Gasto[];
+  gastoSeleccionado: Gasto;
 
   constructor(
     private gastoService: GastoService, 
@@ -35,6 +36,18 @@ export class ListadoGastosComponent implements OnInit {
     .subscribe(res => {
       console.log(res.message)
     });
+  }
+
+  eliminarGasto(gastoSeleccionado: Gasto){
+    this.gastos = this.gastos.filter(g => g != gastoSeleccionado)
+    this.gastoService.eliminarGasto(gastoSeleccionado.id)
+      .subscribe(res => {
+        console.log(res.message);
+      });
+  }
+
+  seleccionarGasto(gasto: Gasto){
+    this.gastoSeleccionado = gasto;
   }
 
   logOut() {
