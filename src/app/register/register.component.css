@@ -1,0 +1,59 @@
+.container {
+    display: grid;
+    flex-flow: column wrap;
+    grid-template-rows: 1fr 1.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+h1 {
+    font-size: 1.7rem;
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    justify-self: center;
+    text-align: center;
+}
+
+.form-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 4;
+    justify-self: center;
+    width: 60%;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    
+}
+
+.input-field {
+    flex: 1;
+    background-color: #E3E3E3;
+    border: 2px solid #20D2E4;
+    border-radius: 5px;
+    padding: 0.5rem;
+    
+}
+
+.input-field:focus {
+    outline: none;
+    border:2px solid #2A56DE;
+}
+
+#register-button {
+    background-color: #87A019;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    min-width: 40%;
+}
+
+#register-button:hover, #regiter-button:focus{
+    background-color: #7B891F;
+    cursor: pointer;
+    outline: none;
+}
