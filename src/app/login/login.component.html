@@ -1,25 +1,24 @@
 <div class="container">
-    <div class="row justify-content-center align-items-center loginForm">
-        <div class="col-10 col-sm-12 col-md-9 col-lg-9 col-xl-6">
-            <h3 class="text-center">Accedé a tu cuenta</h3>
-            <form class="form-login" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-                <div class="form-group">
-                    <label for="username">Nombre de usuario: </label>
-                    <input type="text" class="form-control" id="username" name="username" ngModel requiered>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña: </label>
-                    <input type="password" class="form-control" id="password" name="password" ngModel requiered>
-                </div>
-                <button type="submit" class="btn btn-success mr-3">Iniciar sesión</button>
-                <span><a href="#">¿Olvidaste tu contraseña?</a></span>
-            </form>
-        </div>
-    </div>
-    <div class="row justify-content-center align-items-center">
-        <div class="col-6">
-            <h5>¿No tenés cuenta?</h5>
-            <button class="btn btn-primary btn-lg" routerLink="/register">Registrate acá</button>
-        </div>
+    <div class="login-wrapper">
+        <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h1>Iniciar sesión</h1>
+            <div class="input-container">
+                <i class="material-icons">account_circle</i>
+                <label for="usuario" hidden>Usuario</label>
+                <input class="input-field" type="text" id="user-input" name="username" placeholder="Usuario" ngModel required>
+            </div>
+            <div class="input-container">
+                <i class="material-icons">lock</i>
+                <label for="password" hidden>Contraseña: </label>
+                <input type="password" class="input-field" id="password-input" name="password" placeholder="Contrseña" ngModel required>
+            </div>
+            <button type="submit" id="login-button" class="input-field">Iniciar sesión</button>
+            <span id="recover-password">
+                    <a href="#">¿Olvidaste tu Contraseña?</a>
+                </span>
+                <span id="create-account">
+                    <a routerLink="/register">Crearme una cuenta</a>
+                </span>
+        </form>
     </div>
 </div>

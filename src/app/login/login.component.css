@@ -1,7 +1,93 @@
-.loginForm {
-    height: 450px;
+.container {                 /* Contenedor general*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-flow: row wrap;
 }
 
-h3 {
-    padding: 50px;
+h1, #recover-password, #create-account {
+    text-align: center;
+}
+
+#recover-password {
+    font-size: 1rem;
+}
+
+#create-account {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #452ADE;
+}
+
+a:hover {
+    color: #2A56DE;
+}
+
+.login-wrapper {
+    border: 2px solid lightblue;
+    max-width: 30vw;                      /* Es el borde gris que bordea al login */
+    min-width: 250px;
+    border-radius: 10px;
+    padding: 4vh 2%;
+    flex: 1;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.input-container {
+    background-color: #E3E3E3;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.input-container, #login-button {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.input-field {
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 20px;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.input-container:focus-within{
+    border: 2px solid #452ADE;
+}
+
+#login-button {
+    background-color: #452ADE;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#login-button:hover {
+    background-color: #2A56DE;
+    cursor: pointer;
+}
+
+/* Media query para mobile, pendiente hacerlo mobile first y que el media sea para desktop */
+
+@media screen and (max-width:768px){ 
+    .login-wrapper {
+        border: none;
+    }
 }
