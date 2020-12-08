@@ -1,20 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="/gastos">Gastify</a>
+<nav class="navbar">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto">
-                <a class="nav-link nav-item active" routerLink="/gastos">Inicio</a>
-                <a class="nav-link nav-item" routerLink="/gastos">Gastos</a>
-        </div>
-        <div class="navbar-nav dropdown dropleft mr-2">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{username}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <a class="dropdown-item" (click)="logOut()" href="#">Cerrar Sesion</a>
-            </div>
-        </div>
-    </div>
+    <a class="logo" routerLink="/gastos">Gastify</a>
+
+    <span class="navbar-toggle" (click) = "openMenu()">
+        <i class="material-icons">menu</i>
+    </span>
+
+    <ul class="main-nav" [class.active] = "isOpen">
+        <li><a href="#" class="nav-link">Inicio</a></li> <!-- El inicio es un dashboard a desarollar -->
+        <li><a routerLink="/gastos" class="nav-link">Gastos</a></li> <!-- Listado de todos los gastos -->
+    </ul>
 
 </nav>

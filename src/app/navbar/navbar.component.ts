@@ -16,9 +16,11 @@ export class NavbarComponent implements OnInit {
     private jwtHelper: JwtHelperService,
     private router: Router,
     private authService: AuthService
-  ) { }
+  ) {
+  }
 
   username = '';
+  isOpen = false;
 
   ngOnInit(): void {
     let token = this.authService.getToken();
@@ -30,6 +32,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
-
-
+  openMenu() {
+    this.isOpen = !this.isOpen;
+  }
 }
