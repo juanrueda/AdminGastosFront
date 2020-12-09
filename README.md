@@ -6,7 +6,7 @@ Venciventos is a web app proyect, currently in development, which main purpose i
 
 ## Execute locally 🚀
 
-You can get a copy of this repository code to execute o test it in your local machine with de command: `git clone https://github.com/juanrueda/AdminGastosFront.git` or downloading it directly.
+You can get a copy of this repository code to execute or test it in your local machine with the command: `git clone https://github.com/juanrueda/AdminGastosFront.git` or directly downloading it.
 
 ### Pre-requisites 📋
 
