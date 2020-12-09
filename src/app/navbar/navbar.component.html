@@ -3,7 +3,7 @@
     <a class="logo" routerLink="/gastos">Gastify</a>
 
     <ul class="main-nav" [class.active]="isOpen">
-        <li><a href="#" class="nav-link">Inicio</a></li> <!-- El inicio es un dashboard a desarollar -->
+        <li><a href="javascript:void(0)" class="nav-link">Inicio</a></li> <!-- El inicio es un dashboard a desarollar -->
         <li><a routerLink="/gastos" class="nav-link">Gastos</a></li> <!-- Listado de todos los gastos -->
     </ul>
 
@@ -15,7 +15,7 @@
     <ul [class.active]="userMenuOpen" id="menu-options" class="user-menu-options">
         <li><a href="">Perfil</a></li>
         <li><a href="">Ajustes</a></li>
-        <li><a href="">Cerrar sesión</a></li>
+        <li><a (click) = "logOut()" href="">Cerrar sesión</a></li>
     </ul>
 
     <span class="navbar-toggle" (click)="openMenu()">
