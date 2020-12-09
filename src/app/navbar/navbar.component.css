@@ -1,7 +1,9 @@
-.navbar{
+.navbar {
     font-size: 18px;
     background-color: #120136;
     padding-bottom: 10px;
+    text-align: center;
+    position: relative;
 }
 
 .main-nav {
@@ -11,15 +13,14 @@
 }
 
 .main-nav li {
-    margin: 15px auto;
+    margin: 30px auto 15px auto;
     text-align: center;
 }
 
 .logo {
     display: inline-block;
     font-size: 22px;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin: 10px;
 }
 
 .nav-link, .logo {
@@ -34,53 +35,156 @@
 .navbar-toggle {
     position: absolute;
     top: 10px;
-    right: 20px;
+    left: 20px;
     cursor: pointer;
     color: #ffffff;
     font-size: 24px;
+}
+
+#user-menu {
+    display: flex;
+    position: absolute;
+    right: 1%;
+    top: 10px;
+    color: #ffffff;
+    align-content: center;
+    align-items: center;
+}
+
+#user-menu input {
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+}
+
+#user-menu input:focus {
+    outline: none;
+
+}
+
+#user-menu:hover > input, #user-menu:hover > i{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.user-menu-options {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    right: 1%;
+    list-style-type: none;
+    top: 40px;
+    background-color: #ffffff;
+    border: 1px solid #c2c2c2;
+    text-align: left;
+    padding: 8px;
+}
+
+.user-menu-options li {
+    padding: 5px 1px;
+    
+}
+.user-menu-options li a {
+    text-decoration: none;
+    color: #000;
+}
+.user-menu-options li:hover {
+    background-color: #c2c2c2;
 }
 
 .active {
     display: block;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     .navbar {
         display: flex;
-        justify-content: space-between;
+        flex-flow: row nowrap;
         padding-bottom: 0;
         height: 60px;
         align-items: center;
     }
-
     .main-nav {
         display: flex;
         margin-right: 30px;
-        flex-direction: row;
-        justify-content: flex-end;
     }
-
     .main-nav li {
         margin: 0;
     }
-
     .nav-link {
         margin-left: 40px;
         padding: 5px;
     }
-
     .logo {
         margin-top: 0;
         padding: 5px;
     }
-
     .navbar-toggle {
         display: none;
     }
-
     .logo:hover, .nav-link:hover {
         background-color: #fcbf1e;
         color: #000000;
         font-weight: 400;
     }
+
+    #user-menu:hover > input, #user-menu:hover > i{
+        color: #000000;
+    }
+    /* #user-menu {
+        display: flex;
+        position: absolute;
+        right: 1%;
+        color: #ffffff;
+        align-content: center;
+        align-items: center;
+    }
+    #user-menu input {
+        border: none;
+        background: transparent;
+        color: #ffffff;
+        font-size: 1rem;
+        font-family: inherit;
+    }
+
+    #user-menu input:focus {
+        outline: none;
+    }
+
+    #user-menu:hover > input, #user-menu:hover > i{
+        cursor: pointer;
+        color: #000000;
+    }
+
+    .user-menu-options {
+        display: none;
+        position: absolute;
+        z-index: 99;
+        right: 1%;
+        list-style-type: none;
+        top: 3.2rem;
+        background-color: #ffffff;
+        border: 1px solid #c2c2c2;
+        text-align: left;
+        padding: 8px;
+    }
+
+    .active {
+        display: block;
+    }
+    
+    .user-menu-options li {
+        padding: 5px 1px;
+        
+    }
+    .user-menu-options li a {
+        text-decoration: none;
+        color: #000;
+    }
+    .user-menu-options li:hover {
+        background-color: #c2c2c2;
+    } */
 }
