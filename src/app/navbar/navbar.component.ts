@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
 
   username = '';
   isOpen = false;
+  userMenuOpen = false;
 
   ngOnInit(): void {
     let token = this.authService.getToken();
@@ -34,5 +35,9 @@ export class NavbarComponent implements OnInit {
 
   openMenu() {
     this.isOpen = !this.isOpen;
+  }
+
+  openUserMenu() {
+    this.userMenuOpen = !this.userMenuOpen;
   }
 }
