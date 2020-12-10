@@ -1,6 +1,39 @@
-<h3>Listado de gastos</h3>
+<section>
 
-<button class="btn btn-primary" routerLink="/nuevoGasto">Agregar</button>
+    <h1>Estos son tus gastos:</h1>
+
+    <div class="button-container">
+        <button routerLink="/nuevoGasto" class="add-btn">Agregar</button>
+    </div>
+
+    <table class="gastos-table">
+        <tr>
+            <th >Nombre</th>
+            <th >Importe</th>
+            <th >Vencimiento</th>
+            <th >Pagado</th>
+        </tr>
+        <tr *ngFor="let gasto of gastos">
+            <td data-th="Nombre" >{{gasto.nombre}}</td>
+            <td data-th="Importe">{{gasto.importe}}</td>
+            <td data-th="Vencimiento">{{gasto.fechaVencimiento | date:"dd/MM/yyyy"}}</td>
+            <td data-th="Pagado">
+                <div class="checkbox-pagado">
+                    <input 
+                        type="checkbox" 
+                        [ngModel] = "gasto.pagado"
+                        (ngModelChange) = "editarGasto($event, gasto)"
+                    >
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</section>
+
+
+
+<!-- <button class="btn btn-primary" routerLink="/nuevoGasto">Agregar</button>
 
 <table class="table table-hover">
     <thead class="thead-dark">
@@ -53,4 +86,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

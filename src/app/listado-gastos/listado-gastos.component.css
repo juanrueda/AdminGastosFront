@@ -1,12 +1,90 @@
-table {
-    margin-top: 10px;
-    /* margin-left: 20px; */
-}
-
-h3 {
+h1 {
+    font-size: 2rem;
+    text-align: center;
     margin: 20px;
 }
 
-button {
-    margin: 20px;
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-btn {
+    width: 80vw;
+    height: 40px;
+    background-color: #035aa6;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.add-btn:hover { 
+    background-color: #0378a6;
+    cursor: pointer;
+}
+
+.gastos-table {
+    margin: 1em auto;
+    width: 80vw;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #120136;
+}
+
+.gastos-table th {
+    display: none;
+    color: #fcbf1e;
+}
+
+.gastos-table td {
+    display: block;
+    color: #ffffff;
+}
+
+.gastos-table tr:hover{
+    background-color: #035aa6;
+    cursor: pointer;
+}
+
+.gastos-table td:first-child {
+    padding-top: .5em;
+}
+
+.gastos-table td:last-child {
+    padding-bottom: .5em;
+}
+
+.gastos-table th, .gastos-table td {
+    text-align: left;
+    margin: .5em 1em;
+}
+
+.gastos-table td {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.gastos-table td::before {
+    content: attr(data-th)":";
+    font-weight: bold;
+    color: #fcbf1e;
+}
+
+.chechbox-pagado {
+    align-self: center;
+}
+
+
+@media screen and (min-width: 768px) {
+    .gastos-table td::before {
+        display: none;
+    }
+    .gastos-table th, .gastos-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .gastos-table {
+        width: 80%;
+    }
 }
